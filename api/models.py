@@ -24,3 +24,14 @@ class c_rol(models.Model):
 		return self.ro_nombre
 		
 
+class CalendarioCirugia(models.Model):
+	c_cliente = models.ForeignKey(c_cliente, on_delete=models.CASCADE)
+nombreMedico = models.TextField(max_length=100)
+    #cirujano = models.ForeignKey(Cirujano, on_delete=models.CASCADE)
+    #sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
+fecha = models.DateField()
+hora_inicio = models.TimeField()
+hora_fin = models.TimeField()
+descripcion = models.TextField(max_length=150)
+salaOperaciones = models.TextField(max_length=150)
+tipoCirugia = models.TextField(max_length=150)
