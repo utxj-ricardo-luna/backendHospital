@@ -1,11 +1,11 @@
 from rest_framework import viewsets
-from .models import c_cliente,c_rol
-from .serializer import c_clienteSerializer,c_rolSerializer
+from .models import nacimientos_bebes,seguimiento_pediatria
+from .serializer import nacimientos_bebesSerializer,seguimiento_pediatriaSerializer
 
-class c_clienteViewSet(viewsets.ModelViewSet):
-	queryset = c_cliente.objects.all()
-	serializer_class = c_clienteSerializer
+class nacimientos_bebesViewSet(viewsets.ModelViewSet):
+	queryset = nacimientos_bebes.objects.all()
+	serializer_class = nacimientos_bebesSerializer
 	
-class c_rolViewSet(viewsets.ModelViewSet):
-	queryset = c_rol.objects.all()
-	serializer_class = c_rolSerializer
+class seguimiento_pediatriaViewSet(viewsets.ModelViewSet):
+	queryset = seguimiento_pediatria.objects.all()
+	serializer_class = seguimiento_pediatriaSerializer

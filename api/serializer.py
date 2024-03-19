@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import c_cliente,c_rol
+from .models import nacimientos_bebes,seguimiento_pediatria
 
-class c_clienteSerializer(serializers.ModelSerializer):
+class nacimientos_bebesSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = c_cliente
+		model = nacimientos_bebes
 		fields = '__all__'
 		
-class c_rolSerializer(serializers.ModelSerializer):
+class seguimiento_pediatriaSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = c_rol
+		model = seguimiento_pediatria
 		fields = '__all__'
