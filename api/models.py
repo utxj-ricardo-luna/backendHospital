@@ -23,7 +23,7 @@ class c_rol(models.Model):
 	def __str__(self):
 		return self.ro_nombre
 
-
+ 
 	# Modelos de Direccion General ------------------
 
 class ServiciosMedicos(models.Model):
@@ -101,4 +101,6 @@ class BitacoraDG(models.Model):
     class Meta:
         verbose_name_plural = 'Bitácora DG'
 
-#----------------------------------------------------------------------------------
+
+
+
