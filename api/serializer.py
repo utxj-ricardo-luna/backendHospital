@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import c_cliente,c_rol, c_cirugia,c_Solicitud_Cirugias
+from .models import CalendarioCirugia, c_cliente,c_rol
 
 class c_clienteSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -11,12 +11,7 @@ class c_rolSerializer(serializers.ModelSerializer):
 		model = c_rol
 		fields = '__all__'
 
-class c_rolSerializer(serializers.ModelSerializer):
+class CalendarioCirugiaSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = c_cirugia
+		model = CalendarioCirugia
 		fields = '__all__'
-
-class c_Solicitud_Cirugias(serializers.ModelSerializer):
-	class Meta:
-		model= c_Solicitud_Cirugias
-		fields= '__all__'
