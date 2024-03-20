@@ -58,12 +58,6 @@ class c_Solicitud_Cirugias(models.Model):
     def __str__(self):
         return self.d_nombre
 
-class c_rol(models.Model):
-    ro_nombre = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.ro_nombre
-
 class c_receta_medica(models.Model):
     r_id = models.AutoField(primary_key=True)
     r_cita_id = models.CharField(max_length=15)
@@ -188,9 +182,6 @@ class BitacoraDG(models.Model):
     class Meta:
         verbose_name_plural = 'Bitácora DG'
 
-
-
-
 class CalendarioCirugia(models.Model):
 	c_cliente = models.ForeignKey(c_cliente, on_delete=models.CASCADE)
 nombreMedico = models.TextField(max_length=100)
@@ -217,9 +208,6 @@ class Puesto(models.Model):
     def __str__(self):
         return self.Nombre
 
-
-
-
 class Horario(models.Model):
     ID = models.AutoField(primary_key=True)
     Nombre = models.CharField(max_length=100, null=False)
@@ -231,8 +219,6 @@ class Horario(models.Model):
 
     def __str__(self):
         return self.Nombre
-
-
 
 class Personal(models.Model):
     ID = models.AutoField(primary_key=True)
