@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import c_cliente,c_rol, c_dispensacion,c_receta_medica,c_receta_medica_detalles,c_inventario
+from .models import c_cliente,c_rol, ServiciosMedicos, ServiciosHospitalarios, AprobacionesServicios,BitacoraDG
 
 # Register your models here.
 admin.site.register(c_cliente)
@@ -10,3 +11,7 @@ admin.site.register(c_dispensacion)
 admin.site.register(c_receta_medica)
 admin.site.register(c_receta_medica_detalles)
 admin.site.register(c_inventario)
+admin.site.register(ServiciosMedicos)
+admin.site.register(ServiciosHospitalarios)
+admin.site.register(AprobacionesServicios)
+admin.site.register(BitacoraDG)
