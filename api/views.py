@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import c_cliente,c_rol, Puesto, Horario, Personal, CalendarioCirugia, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
-from .serializer import CalendarioCirugiaSerializer, c_clienteSerializer,c_rolSerializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
+from .models import c_cliente,c_rol, Puesto, Horario, Personal, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
+from .serializer import c_clienteSerializer,c_rolSerializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
 
 class c_clienteViewSet(viewsets.ModelViewSet):
 	queryset = c_cliente.objects.all()
@@ -9,10 +9,6 @@ class c_clienteViewSet(viewsets.ModelViewSet):
 class c_rolViewSet(viewsets.ModelViewSet):
 	queryset = c_rol.objects.all()
 	serializer_class = c_rolSerializer
-
-class CalendarioCirugiaViewSet(viewsets.ModelViewSet):
-	queryset = CalendarioCirugia.objects.all()
-	serializer_class = CalendarioCirugiaSerializer
 
 class c_inventarioViewSet(viewsets.ModelViewSet):
 	queryset = c_inventario.objects.all()
