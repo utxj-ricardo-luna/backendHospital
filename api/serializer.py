@@ -45,12 +45,10 @@ class Meta:
 		model = c_rol
 		fields = '__all__'
   
-<<<<<<< HEAD
 class c_registroSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = c_registrosM
 		fields = '__all__'
-=======
   
 class solicitud_organos_1Serializer(serializers.ModelSerializer):
 	class Meta:
@@ -93,4 +91,3 @@ class PersonalSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Personal
 		fields = '__all__'
->>>>>>> main
