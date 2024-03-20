@@ -60,7 +60,7 @@ class c_cirugia(models.Model):
 	
 
 class c_Solicitud_Cirugias(models.Model):
-    ID_cita = models.CharField(max_length=100, unique=True)
+    ID_cita = models.CharField(max_length=100)
     ID_paciente = models.CharField(max_length=100)
     ID_medico = models.CharField(max_length=100)
     fecha_hora = models.DateTimeField()
@@ -238,8 +238,8 @@ class Personal(models.Model):
     Direccion = models.CharField(max_length=255)
     Telefono = models.CharField(max_length=20)
     Correo_Electronico = models.CharField(max_length=100)
-    Puesto_ID = models.ForeignKey('Puesto', on_delete=models.CASCADE)
-    Horario_ID = models.ForeignKey('Horario', on_delete=models.CASCADE)
+    #Puesto_ID = models.ForeignKey('Puesto', on_delete=models.CASCADE)
+    #Horario_ID = models.ForeignKey('Horario', on_delete=models.CASCADE)
     Fecha_Inicio = models.DateField()
     Estatus = models.CharField(max_length=10, choices=(('activo', 'activo'), ('inactivo', 'inactivo')), default='activo')
 
