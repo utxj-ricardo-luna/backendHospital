@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import CalendarioCirugia, c_cliente,c_rol, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
+from .models import CalendarioCirugia, c_cliente,c_rol, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG, Puesto, Horario, Personal 
 
 class c_clienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,3 +61,19 @@ class BitacoraDGServiciosSerializer(serializers.ModelSerializer):
 		model = BitacoraDG
 		fields = '__all__'
 
+
+class PuestoSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Puesto
+		fields = '__all__'
+
+class HorarioSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Horario
+		fields = '__all__'
+
+
+class PersonalSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Personal
+		fields = '__all__'
