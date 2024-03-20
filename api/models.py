@@ -40,7 +40,7 @@ class c_rol(models.Model):
 		return self.ro_nombre
 
 class c_registrosM(models.Model):
-    ID = models.CharField(max_length=30)
+    #ID = models.CharField(max_length=30)
     Persona_ID = models.CharField(max_length=30)
     Personal_Medico_ID = models.CharField(max_length=30)
     Fecha_Creacion_Archivo = models.CharField(max_length=150)
@@ -93,6 +93,7 @@ class solicitud_organos_1(models.Model):
  
 	def __str__(self):
 		return self.solicitud_ID
+     
 class c_cirugia(models.Model):
     nombre = models.CharField(max_length=100)
     apellido1 = models.CharField(max_length=100)
