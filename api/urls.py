@@ -14,6 +14,9 @@ router.register(r'ServiciosMedicos', views.ServiciosMedicosViewSet)
 router.register(r'ServiciosHospitalarios', views.ServiciosHospitalariosViewSet)
 router.register(r'AprobacionesServicios', views.AprobacionesServiciosViewSet)
 router.register(r'BitacoraDG', views.BitacoraDGServiciosViewSet)
+router.register(r'Puesto', views.PuestoViewSet)
+router.register(r'Horario', views.HorarioViewSet)
+router.register(r'Personal', views.PersonalViewSet)
 
 urlpatterns = [
 	path('api/v1',include(router.urls))
