@@ -58,12 +58,6 @@ class c_Solicitud_Cirugias(models.Model):
     def __str__(self):
         return self.d_nombre
 
-class c_rol(models.Model):
-    ro_nombre = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.ro_nombre
-
 class c_receta_medica(models.Model):
     r_id = models.AutoField(primary_key=True)
     r_cita_id = models.CharField(max_length=15)
@@ -188,17 +182,14 @@ class BitacoraDG(models.Model):
     class Meta:
         verbose_name_plural = 'Bitácora DG'
 
-
-
-
 class CalendarioCirugia(models.Model):
-	c_cliente = models.ForeignKey(c_cliente, on_delete=models.CASCADE)
-nombreMedico = models.TextField(max_length=100)
+	#c_cliente = models.ForeignKey(c_cliente, on_delete=models.CASCADE)
+    nombreMedico = models.TextField(max_length=100)
     #cirujano = models.ForeignKey(Cirujano, on_delete=models.CASCADE)
     #sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
-fecha = models.DateField()
-hora_inicio = models.TimeField()
-hora_fin = models.TimeField()
-descripcion = models.TextField(max_length=150)
-salaOperaciones = models.TextField(max_length=150)
-tipoCirugia = models.TextField(max_length=150)
+    fecha = models.DateField()
+    hora_inicio = models.TimeField()
+    hora_fin = models.TimeField()
+    descripcion = models.TextField(max_length=150)
+    salaOperaciones = models.TextField(max_length=150)
+    tipoCirugia = models.TextField(max_length=150)
