@@ -3,6 +3,8 @@ from rest_framework import routers
 from api import views
 
 router = routers.DefaultRouter()
+router.register(r'nacimientos_bebes', views.nacimientos_bebesViewSet)
+router.register(r'seguimiento_pediatria', views.seguimiento_pediatriaViewSet)
 router.register(r'c_cliente', views.c_clienteViewSet)
 router.register(r'c_rol', views.c_rolViewSet)
 router.register(r'solicitud_organos_1', views.solicitud_organos_1ViewSet)

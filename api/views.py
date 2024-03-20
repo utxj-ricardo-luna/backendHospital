@@ -1,6 +1,14 @@
 from rest_framework import viewsets
-from .models import c_cliente,c_rol, solicitud_organos_1, Puesto, Horario, Personal, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
-from .serializer import c_clienteSerializer,c_rolSerializer, solicitud_organos_1Serializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
+from .models import c_cliente,c_rol, nacimientos_bebes,seguimiento_pediatria,solicitud_organos_1, Puesto, Horario, Personal, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
+from .serializer import c_clienteSerializer,c_rolSerializer, nacimientos_bebesSerializer,seguimiento_pediatriaSerializer,solicitud_organos_1Serializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
+
+class nacimientos_bebesViewSet(viewsets.ModelViewSet):
+	queryset = nacimientos_bebes.objects.all()
+	serializer_class = nacimientos_bebesSerializer
+	
+class seguimiento_pediatriaViewSet(viewsets.ModelViewSet):
+	queryset = seguimiento_pediatria.objects.all()
+	serializer_class = seguimiento_pediatriaSerializer
 
 class c_clienteViewSet(viewsets.ModelViewSet):
 	queryset = c_cliente.objects.all()
