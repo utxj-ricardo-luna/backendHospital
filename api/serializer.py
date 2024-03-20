@@ -1,7 +1,6 @@
 
 from rest_framework import serializers
-from .models import c_cliente, c_rol, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles
-from .models import c_cliente,c_rol, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
+from .models import c_cliente, c_rol, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
 
 class c_clienteSerializer(serializers.ModelSerializer):
     class Meta:

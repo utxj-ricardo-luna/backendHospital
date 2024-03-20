@@ -3,8 +3,7 @@
 
 from rest_framework import viewsets
 from .models import c_cliente,c_rol
-from .serializer import c_clienteSerializer,c_rolSerializer,c_inventario,c_cliente,c_dispensacion,c_receta_medica,c_receta_medica_detalles,c_rol
-from .serializer import c_clienteSerializer,c_rolSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer
+from .serializer import c_clienteSerializer,c_rolSerializer,c_inventario,c_cliente,c_dispensacion,c_receta_medica,c_receta_medica_detalles, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer
 
 class c_clienteViewSet(viewsets.ModelViewSet):
 	queryset = c_cliente.objects.all()
