@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import c_cliente,c_rol, nacimientos_bebes,seguimiento_pediatria,solicitud_organos_1, Puesto, Horario, Personal, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
-from .serializer import c_clienteSerializer,c_rolSerializer, nacimientos_bebesSerializer,seguimiento_pediatriaSerializer,solicitud_organos_1Serializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
+from .models import c_cliente,c_rol,c_registrosM, nacimientos_bebes,seguimiento_pediatria,solicitud_organos_1, Puesto, Horario, Personal, c_cliente,c_rol,c_inventario,c_dispensacion,c_receta_medica,c_receta_medica_detalles,ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG
+from .serializer import c_clienteSerializer,c_rolSerializer,c_registroSerializer, nacimientos_bebesSerializer,seguimiento_pediatriaSerializer,solicitud_organos_1Serializer,c_inventarioSerializer,c_clienteSerializer,c_dispensacionSerializer,c_receta_medicaSerializer,c_receta_medica_detallesSerializer, ServiciosMedicosSerializer, ServiciosHospitalariosSerializer, AprobacionesServiciosSerializer,BitacoraDGServiciosSerializer, PuestoSerializer, HorarioSerializer, PersonalSerializer
 
 class nacimientos_bebesViewSet(viewsets.ModelViewSet):
 	queryset = nacimientos_bebes.objects.all()
@@ -17,6 +17,10 @@ class c_clienteViewSet(viewsets.ModelViewSet):
 class c_rolViewSet(viewsets.ModelViewSet):
 	queryset = c_rol.objects.all()
 	serializer_class = c_rolSerializer
+ 
+class c_registroViewSet(viewsets.ModelViewSet):
+	queryset = c_registrosM.objects.all()
+	serializer_class = c_registroSerializer
 	
 class solicitud_organos_1ViewSet(viewsets.ModelViewSet):
 	queryset = solicitud_organos_1.objects.all()

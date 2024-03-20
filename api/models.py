@@ -38,6 +38,15 @@ class c_rol(models.Model):
     #TextField(blanck=True)
 	def __str__(self):
 		return self.ro_nombre
+
+class c_registrosM(models.Model):
+    ID = models.CharField(max_length=30)
+    Persona_ID = models.CharField(max_length=30)
+    Personal_Medico_ID = models.CharField(max_length=30)
+    Fecha_Creacion_Archivo = models.CharField(max_length=150)
+    Fecha_Edicion_Archivo = models.CharField(max_length=150)
+    def __str__(self):return self.ID
+		
      
 class seguimiento_pediatria(models.Model):
 	id_pediatrico = models.CharField(max_length=50)
