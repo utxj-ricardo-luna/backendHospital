@@ -5,6 +5,7 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'c_cliente', views.c_clienteViewSet)
 router.register(r'c_rol', views.c_rolViewSet)
+router.register(r'solicitud_organos_1', views.solicitud_organos_1ViewSet)
 router.register(r'c_dispensacion', views.c_dispensacionViewSet)
 router.register(r'c_receta_medica', views.c_receta_medicaViewSet)
 router.register(r'c_receta_medica_detalles', views.c_receta_medica_detallesViewSet)

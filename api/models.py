@@ -22,6 +22,29 @@ class c_rol(models.Model):
 	def __str__(self):
 		return self.ro_nombre
 
+class solicitud_organos_1(models.Model):
+	solicitud_ID = models.AutoField(primary_key=True)
+	paciente_ID = models.IntegerField()
+	medico_ID = models.IntegerField()
+	organo_ID = models.IntegerField()
+ 
+	class prioridad_2(models.TextChoices):
+		urgente = 'urgente' 
+		alta = 'alta'
+		moderada = 'moderada'
+	prioridad = models.CharField( max_length = 255, choices=prioridad_2.choices)
+ 
+	fecha_solicitud = models.DateTimeField()
+	dias_espera = models.IntegerField()
+ 
+	class estatus_paciente(models.TextChoices):
+		Transplante_exitoso = 'Transplante exitoso'
+		Recuperacion = 'Recuperacion'
+		Pendiente = 'Pendiente'
+	estatus = models.CharField(  max_length = 255, choices=estatus_paciente.choices)
+ 
+	def __str__(self):
+		return self.solicitud_ID
 class c_cirugia(models.Model):
     nombre = models.CharField(max_length=100)
     apellido1 = models.CharField(max_length=100)
