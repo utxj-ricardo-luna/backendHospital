@@ -1,23 +1,28 @@
 from django.db import models
 
 # Create your models here.
-class nacimientos_bebes(models.Model):
-	id_bebe = models.CharField(max_length=50)
-	fecha_nacimiento = models.CharField(max_length=50)
-	hora_nacimiento = models.CharField(max_length=50)
-	lugar_nacimiento = models.CharField(max_length=150)
-	peso = models.CharField(max_length=15)
-	longitud = models.CharField(max_length=100)
-	nombre_padre = models.CharField(max_length=50)
-	nombre_madre = models.CharField(max_length=50)
-	telefono_contacto = models.CharField(max_length=50)
-	email_contacto = models.CharField(max_length=50)
-	observaciones = models.CharField(max_length=50)
-	tipo_nacimiento = models.CharField(max_length=50)
-	frecuencia_cardiaca = models.CharField(max_length=50)
-	temperatura = models.CharField(max_length=50)
-	presion_arterial_sistolica = models.CharField(max_length=50)
-	presion_arterial_diastolica = models.CharField(max_length=50)
+class nacimientosBebes(models.Model):
+    fecha_nacimiento = models.DateField(null=True)
+    hora_nacimiento = models.TimeField(null=True)
+    lugar_nacimiento = models.CharField(max_length=100, null=True)
+    peso = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    longitud = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    nombre_padre = models.CharField(max_length=100, null=True)
+    nombre_madre = models.CharField(max_length=100, null=True)
+    telefono_contacto = models.CharField(max_length=20, null=True)
+    email_contacto = models.EmailField(null=True)
+    observaciones = models.TextField(null=True)
+    tipo_nacimiento = models.CharField(max_length=8, choices=[('normal', 'Normal'), ('cesarea', 'Cesárea')], null=True)
+    frecuencia_cardiaca = models.IntegerField(null=True)
+    temperatura = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    presion_arterial_sistolica = models.IntegerField(null=True)
+    presion_arterial_diastolica = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"ID: {self.id}, Nombre: {self.nombre_padre} y {self.nombre_madre}"
+
+
+ 
 class c_cliente(models.Model):
 	d_nombre = models.CharField(max_length=50)
 	d_apellidoPaterno = models.CharField(max_length=50)
@@ -76,27 +81,26 @@ class c_registrosM(models.Model):
     def __str__(self):return self.ID
 		
      
-class seguimiento_pediatria(models.Model):
-	id_pediatrico = models.CharField(max_length=50)
-	id_paciente = models.CharField(max_length=50)
-	fecha_seguimiento = models.CharField(max_length=50)
-	edad_años = models.CharField(max_length=50)
-	peso = models.CharField(max_length=50)
-	longitud = models.CharField(max_length=50)
-	perimetro_craneal = models.CharField(max_length=50)
-	temperatura = models.CharField(max_length=50)
-	frecuencia_respiratoria = models.CharField(max_length=50)
-	frecuencia_cardiaca = models.CharField(max_length=50)
-	presion_arterial_sistolica = models.CharField(max_length=50)
-	presion_arterial_diastolica = models.CharField(max_length=50)
-	vacunas_administradas = models.CharField(max_length=50)
-	examenes_medicos_realizados = models.CharField(max_length=50)
-	observaciones = models.CharField(max_length=50)
-	#website = models.URLField(max_length=100)
-	#foundation = models.PositiveIntegerField()
-    #TextField(blanck=True)
-	def __str__(self):
-		return self.ro_nombre
+class SeguimientoPediatrico(models.Model):
+    id_paciente = models.OneToOneField(nacimientosBebes, on_delete=models.CASCADE, primary_key=True)
+    cita_id = models.IntegerField(null=True)
+    fecha_seguimiento = models.DateField(null=True)
+    edad_anios = models.IntegerField(null=True)
+    peso = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    longitud = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    perimetro_cranial = models.DecimalField(max_digits=5, decimal_places=2, null=True)
+    temperatura = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    frecuencia_respiratoria = models.IntegerField(null=True)
+    frecuencia_cardiaca = models.IntegerField(null=True)
+    presion_arterial_sistolica = models.IntegerField(null=True)
+    presion_arterial_diastolica = models.IntegerField(null=True)
+    vacunas_administradas = models.TextField(null=True)
+    examenes_medicos_realizados = models.TextField(null=True)
+    observaciones = models.TextField(null=True)
+
+    def __str__(self):
+        return f"ID Paciente: {self.id_paciente}, Fecha seguimiento: {self.fecha_seguimiento}"
+
 
 class solicitud_organos_1(models.Model):
 	solicitud_ID = models.AutoField(primary_key=True)
