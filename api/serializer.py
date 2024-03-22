@@ -1,15 +1,31 @@
 from rest_framework import serializers
-from .models import c_cliente,c_rol, c_registrosM, solicitud_organos_1,nacimientos_bebes,seguimiento_pediatria, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG, Puesto, Horario, Personal 
+from .models import c_cliente,c_rol, c_registrosM, solicitud_organos_1,nacimientosBebes, SeguimientoPediatrico, c_dispensacion, c_inventario, c_receta_medica, c_receta_medica_detalles, ServiciosMedicos,ServiciosHospitalarios,AprobacionesServicios,BitacoraDG, Puesto, Horario, Personal 
 
-class nacimientos_bebesSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = nacimientos_bebes
-		fields = '__all__'
-		
-class seguimiento_pediatriaSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = seguimiento_pediatria
-		fields = '__all__'
+# Serializador para ver/obtener información de un bebé
+class BebeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = nacimientosBebes
+        fields = '__all__'
+
+# Serializador para crear/actualizar información de un bebé
+class BebeCrearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = nacimientosBebes
+        exclude = ['id']  # Excluimos el campo 'id' ya que es autoincremental
+
+# Serializador para ver/obtener información de seguimiento pediátrico
+class SeguimientoPediatricoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SeguimientoPediatrico
+        fields = '__all__'
+
+# Serializador para crear/actualizar información de seguimiento pediátrico
+class SeguimientoPediatricoCrearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SeguimientoPediatrico
+        exclude = ['id_paciente'] 
+  
+  
 class c_clienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = c_cliente
