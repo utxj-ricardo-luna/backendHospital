@@ -179,33 +179,66 @@ class c_receta_medica_detalles(models.Model):
     def __str__(self):
         return str(self.rc_id)
 
-class c_inventario(models.Model):
-    i_id = models.AutoField(primary_key=True)
-    i_codigo = models.CharField(max_length=15)
-    i_tipo_presentacion = models.CharField(max_length=15)
-    i_via_administracion = models.CharField(max_length=15)
-    i_cantidad = models.CharField(max_length=15)
-    i_precio_costo = models.FloatField(default=0)
-    i_precio_venta = models.FloatField(default=0)
-    i_numero_lote = models.CharField(max_length=15)
-    i_fecha_caducidad = models.CharField(max_length=15)
-    
-    def __str__(self):
-        return str(self.i_id)
+
+# Modelo Farmacia Intrahospitalaria ------------------------------------------
 
 
-class c_dispensacion(models.Model):
-    di_id = models.AutoField(primary_key=True)
-    di_recetaId = models.CharField(max_length=15)
-    di_medicamento = models.CharField(max_length=15)
-    di_dosis = models.CharField(max_length=15)
-    di_solicitados = models.CharField(max_length=15)
-    di_cantidad = models.CharField(max_length=100)  # Cambiado a CharField con longitud más pequeña
-    di_precio = models.CharField(max_length=15)
-    di_fecha_venta = models.CharField(max_length=15)
+class c_dispensacion_medicamentos(models.Model):
+    # di_ID = models.AutoField(primary_key=True)
+    di_Receta_ID = models.CharField(max_length=15)
+    di_Personal_Medico_ID = models.CharField(max_length=15)
+    di_Fecha_Registro = models.DateTimeField(auto_now_add=True)
+    di_Total_Medicamentos_Solicitados = models.IntegerField()
+    di_Total_Medicamentos_Entregados = models.IntegerField()  
+
+    # Definir la enumeración para el campo de estado
+    class Estado(models.TextChoices):
+        DISPONIBLE = 'Disponible'
+        NO_DISPONIBLE = 'No Disponible'
+
+    # Agregar el campo de estado con las opciones de la enumeración
+    di_estatus = models.CharField(max_length=15, choices=Estado.choices, default=Estado.DISPONIBLE)
+
+    def __str__(self):
+        return str(self.di_Receta_ID)
+
+    
+
+
+class c_detalles_dispensacion(models.Model):
+    di_Dispensacion_ID = models.CharField(max_length=15)
+    di_Detalle_Receta_ID = models.CharField(max_length=15)
+    di_Fecha_Entrega = models.DateTimeField(auto_now_add=True)  
+    di_Cantidad_Entregada = models.IntegerField()  
+    di_Precio_Unitario = models.DecimalField(max_digits=10, decimal_places=2)
+    di_Precio_Total = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):
-        return str(self.di_id)
+        return str(self.di_Dispensacion_ID)
+
+
+
+class c_lotes_medicamentos(models.Model):
+    di_Medicamento_ID = models.CharField(max_length=15)
+    di_Descripcion = models.CharField(max_length=15)
+    di_Cantidad = models.IntegerField()  
+    di_fecha_vencimiento = models.DateField() 
+    di_fecha_ingreso = models.DateField(auto_now_add=True) 
+   
+    def __str__(self):
+        return str(self.di_Medicamento_ID)
+
+class c_detalle_lotes(models.Model):
+    di_Lotes_ID = models.CharField(max_length=15)
+    di_Codigo = models.CharField(max_length=15)
+    di_Marca = models.CharField(max_length=50)  
+    di_Precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)  
+    di_Estatus = models.CharField(max_length=15)
+   
+    def __str__(self):
+        return str(self.di_Lotes_ID)
+
+
 
 	# Modelos de Direccion General ------------------
 
